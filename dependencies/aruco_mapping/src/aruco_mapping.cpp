@@ -59,7 +59,7 @@ ArucoMapping::ArucoMapping(ros::NodeHandle *nh) :
   nh->getParam("/aruco_mapping/calibration_file", calib_filename_);
   nh->getParam("/aruco_mapping/marker_size", temp_marker_size); 
   nh->getParam("/aruco_mapping/num_of_markers", num_of_markers_);
-  nh->getParam("/aruco_maping/space_type",space_type_);
+  nh->getParam("/aruco_mapping/space_type",space_type_);
   nh->getParam("/aruco_mapping/roi_allowed",roi_allowed_);
   nh->getParam("/aruco_mapping/roi_x",roi_x_);
   nh->getParam("/aruco_mapping/roi_y",roi_y_);
@@ -93,7 +93,7 @@ ArucoMapping::ArucoMapping(ros::NodeHandle *nh) :
   parseCalibrationFile(calib_filename_);
 
   //Initialize OpenCV window
-  cv::namedWindow("Mono8", CV_WINDOW_AUTOSIZE);       
+  cv::namedWindow("Mono8", cv::WINDOW_AUTOSIZE);       
       
   //Resize marker container
   markers_.resize(num_of_markers_);
@@ -147,6 +147,10 @@ ArucoMapping::parseCalibrationFile(std::string calib_filename)
   //Simple check if calibration data meets expected values
   if ((intrinsics->at<double>(2,2) == 1) && (distortion_coeff->at<double>(0,4) == 0))
   {
+    ROS_INFO_STREAM("Image width: " << image_size->width);
+    ROS_INFO_STREAM("Image height: " << image_size->height);
+    ROS_INFO_STREAM("Intrinsics:" << std::endl << *intrinsics);
+    ROS_INFO_STREAM("Distortion: " << *distortion_coeff);
     ROS_INFO_STREAM("Calibration data loaded successfully");
     return true;
   }
@@ -464,6 +468,7 @@ ArucoMapping::processImage(cv::Mat input_image,cv::Mat output_image)
         marker_quaternion = markers_[index].tf_to_previous.getRotation();
 
         // If plane type selected roll, pitch and Z axis are zero
+        std::cout << "space_type is " << space_type_ << endl;
         if(space_type_ == "plane")
         {
           double roll, pitch, yaw;
