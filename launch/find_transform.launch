@@ -1,20 +1,23 @@
 <?xml version="1.0"?>
 <launch>
-  <!-- <param name="/use_sim_time" value="true"/> -->
+  <!-- --><param name="/use_sim_time" value="false"/>
   
 
   <!-- ArUco mapping -->
- <!--  <node pkg="aruco_mapping" type="aruco_mapping" name="aruco_mapping" output="screen">
-    <remap from="/image_raw" to="/frontNear/left/image_raw"/>
+  <node pkg="aruco_mapping" type="aruco_mapping" name="aruco_mapping" output="screen">
+    <!--<remap from="/image_raw" to="/frontNear/left/image_raw"/>-->
+    <!--<remap from="/image_raw" to="/usb_cam/image_raw"/>-->
+    <!--<remap from="/image_raw" to="/image_rect"/>-->
 
-    <param name="calibration_file" type="string" value="$(find aruco_mapping)/data/zed_left_uurmi.ini" /> 
+    <param name="calibration_file" type="string" value="$(find aruco_mapping)/data/axis_camera.ini" /> 
     <param name="num_of_markers" type="int" value="2" />
-    <param name="marker_size" type="double" value="0.205"/>
-    <param name="space_type" type="string" value="plane" />
+    <param name="marker_size" type="double" value="0.180"/>
+    <!--<param name="space_type" type="string" value="plane" />-->
+    <param name="space_type" type="string" value="" />
     <param name="roi_allowed" type="bool" value="false" />
 
 
-  </node>  -->
+  </node>
 
 
   <rosparam command="load" file="$(find lidar_camera_calibration)/conf/lidar_camera_calibration.yaml" />

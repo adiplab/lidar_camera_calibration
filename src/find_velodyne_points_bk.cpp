@@ -30,6 +30,7 @@
 #include "lidar_camera_calibration/Corners.h"
 #include "lidar_camera_calibration/PreprocessUtils.h"
 #include "lidar_camera_calibration/Find_RT.h"
+
 #include "lidar_camera_calibration/marker_6dof.h"
 
 using namespace cv;
@@ -83,7 +84,8 @@ void callback_noCam(const sensor_msgs::PointCloud2ConstPtr& msg_pc,
 	point_cloud = intensityByRangeDiff(point_cloud, config);
 	// x := x, y := -z, z := y
 
-	// pcl::io::savePCDFileASCII ("/home/vishnu/PCDs/msg_point_cloud.pcd", pc);  
+	//pcl::io::savePCDFileASCII ("/home/vishnu/PCDs/msg_point_cloud.pcd", pc);  
+
 
 	cv::Mat temp_mat(config.s, CV_8UC3);
 	pcl::PointCloud<pcl::PointXYZ> retval = *(toPointsXYZ(point_cloud));
@@ -97,17 +99,10 @@ void callback_noCam(const sensor_msgs::PointCloud2ConstPtr& msg_pc,
 	}
 	std::cout << "\n";
 
-	if (marker_info.size()/7 == config.num_of_markers)
-	{
-		std::cout << "processing on marker_info" << endl;
-		bool no_error = getCorners(temp_mat, retval, config.P, config.num_of_markers, config.MAX_ITERS);
-		if(no_error){
-	    	find_transformation(marker_info, config.num_of_markers, config.MAX_ITERS, lidarToCamera);
-		}
+	bool no_error = getCorners(temp_mat, retval, config.P, config.num_of_markers, config.MAX_ITERS);
+	if(no_error){
+	    find_transformation(marker_info, config.num_of_markers, config.MAX_ITERS, lidarToCamera);
 	}
-
-
-	
 	//ros::shutdown();
 }
 
@@ -157,25 +152,21 @@ void callback(const sensor_msgs::CameraInfoConstPtr& msg_info,
 
 	//pcl::io::savePCDFileASCII ("/home/vishnu/PCDs/msg_point_cloud.pcd", pc);  
 
+
 	cv::Mat temp_mat(config.s, CV_8UC3);
 	pcl::PointCloud<pcl::PointXYZ> retval = *(toPointsXYZ(point_cloud));
 
 	std::vector<float> marker_info;
 
-	// std::cout << "msg_rt->dof.data" << endl;
 	for(std::vector<float>::const_iterator it = msg_rt->dof.data.begin(); it != msg_rt->dof.data.end(); ++it)
 	{
 		marker_info.push_back(*it);
 		std::cout << *it << " ";
 	}
+	std::cout << "\n";
 
-	if (marker_info.size()/7 == config.num_of_markers)
-	{
-		std::cout << "processing on marker_info" << endl;
-		getCorners(temp_mat, retval, projection_matrix, config.num_of_markers, config.MAX_ITERS);
-		find_transformation(marker_info, config.num_of_markers, config.MAX_ITERS, lidarToCamera);
-	}
-	
+	getCorners(temp_mat, retval, projection_matrix, config.num_of_markers, config.MAX_ITERS);
+	find_transformation(marker_info, config.num_of_markers, config.MAX_ITERS, lidarToCamera);
 	//ros::shutdown();
 }
 

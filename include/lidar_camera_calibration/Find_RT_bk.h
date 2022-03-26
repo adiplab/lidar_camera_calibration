@@ -234,15 +234,12 @@ Matrix4d calc_RT(MatrixXd lidar, MatrixXd camera, int MAX_ITERS, Eigen::Matrix3d
  	/*if(iteration_counter%1 == 0)
 	{
 		std::ofstream log_avg_values(pkg_loc + "/log/avg_values.txt", std::ios_base::app);
-
 		log_avg_values << iteration_counter << "\n";
 		log_avg_values << translation_sum/iteration_counter << "\n";
-
 		double mag = sqrt(rotation_sum.x()*rotation_sum.x() +
 					 rotation_sum.y()*rotation_sum.y() +
 					 rotation_sum.z()*rotation_sum.z() +
 					 rotation_sum.w()*rotation_sum.w());
-
 		Eigen::Quaterniond rot_temp_sum;
 		rot_temp_sum.x() = rotation_sum.x()/(mag*iteration_counter);
 		rot_temp_sum.y() = rotation_sum.y()/(mag*iteration_counter);
@@ -251,16 +248,13 @@ Matrix4d calc_RT(MatrixXd lidar, MatrixXd camera, int MAX_ITERS, Eigen::Matrix3d
 		
 		Eigen::Matrix3d rotation_avg = rot_temp_sum.toRotationMatrix();
 		//log_avg_values << rotation_avg << "\n";
-
 		log_avg_values << std::fixed << std::setprecision(8)
 						<< rotation_avg(0,0) << " " << rotation_avg(0,1) << " " << rotation_avg(0,2) << "\n"
 					   << rotation_avg(1,0) << " " << rotation_avg(1,1) << " " << rotation_avg(1,2) << "\n"
 					   << rotation_avg(2,0) << " " << rotation_avg(2,1) << " " << rotation_avg(2,2) << "\n";
-
 		MatrixXd eltwise_error_temp = (camera - ((rotation_avg*lidar).colwise() + (translation_sum/iteration_counter))).array().square().colwise().sum();
 		double error_temp = sqrt(eltwise_error_temp.sum()/num_points);
 		log_avg_values << std::fixed << std::setprecision(8) << error_temp << "\n";
-
 		log_avg_values.close();
  	}*/
  	
@@ -274,10 +268,6 @@ void readArucoPose(std::vector<float> marker_info, int num_of_marker_in_config)
 {
 	std::vector<Matrix4d> marker_pose;
 
-	std::cout << "marker_info.size:" << "\n" << marker_info.size() << "\n";
-	std::cout << "num_of_marker_in_config:" << "\n" << num_of_marker_in_config << "\n";
-	std::cout << "True? False?" << "\n" << (marker_info.size()/7 == num_of_marker_in_config) << "\n";
-	
 	ROS_ASSERT(marker_info.size()/7 == num_of_marker_in_config);
 
 	int j=0;
@@ -358,7 +348,6 @@ void readArucoPose(std::vector<float> marker_info, int num_of_marker_in_config)
     	std::cout << "P2: " << ba-board[1] << " " << board[0]-la << "\n";
     	std::cout << "P3: " << ba-board[1] << " " << -la << "\n";
     	std::cout << "P4: " << ba << " " << -la << "\n\n";
-
     	std::cout << "Points in camera frame: \n" << points_board << std::endl;*/
 
     	//marker_coordinates.push_back(corner_points);

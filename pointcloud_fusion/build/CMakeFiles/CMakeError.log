@@ -1,24 +1,24 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/rrc/Desktop/fusion/build/CMakeFiles/CMakeTmp
+Change Dir: /home/noah/video_ws/src/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_0b4dc/fast"
-/usr/bin/make -f CMakeFiles/cmTC_0b4dc.dir/build.make CMakeFiles/cmTC_0b4dc.dir/build
-make[1]: Entering directory '/home/rrc/Desktop/fusion/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_0b4dc.dir/CheckSymbolExists.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_0b4dc.dir/CheckSymbolExists.c.o   -c /home/rrc/Desktop/fusion/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_0b4dc
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0b4dc.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_0b4dc.dir/CheckSymbolExists.c.o  -o cmTC_0b4dc -rdynamic 
-CMakeFiles/cmTC_0b4dc.dir/CheckSymbolExists.c.o: In function `main':
-CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+Run Build Command:"/usr/bin/make" "cmTC_0372d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0372d.dir/build.make CMakeFiles/cmTC_0372d.dir/build
+make[1]: Entering directory '/home/noah/video_ws/src/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0372d.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_0372d.dir/CheckSymbolExists.c.o   -c /home/noah/video_ws/src/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_0372d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0372d.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_0372d.dir/CheckSymbolExists.c.o  -o cmTC_0372d 
+CMakeFiles/cmTC_0372d.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_0b4dc.dir/build.make:97: recipe for target 'cmTC_0b4dc' failed
-make[1]: *** [cmTC_0b4dc] Error 1
-make[1]: Leaving directory '/home/rrc/Desktop/fusion/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_0b4dc/fast' failed
-make: *** [cmTC_0b4dc/fast] Error 2
+CMakeFiles/cmTC_0372d.dir/build.make:97: recipe for target 'cmTC_0372d' failed
+make[1]: *** [cmTC_0372d] Error 1
+make[1]: Leaving directory '/home/noah/video_ws/src/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_0372d/fast' failed
+make: *** [cmTC_0372d/fast] Error 2
 
-File /home/rrc/Desktop/fusion/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/noah/video_ws/src/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -34,77 +34,22 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/rrc/Desktop/fusion/build/CMakeFiles/CMakeTmp
+Change Dir: /home/noah/video_ws/src/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_17f07/fast"
-/usr/bin/make -f CMakeFiles/cmTC_17f07.dir/build.make CMakeFiles/cmTC_17f07.dir/build
-make[1]: Entering directory '/home/rrc/Desktop/fusion/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_17f07.dir/CheckFunctionExists.c.o
-/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_17f07.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.7/Modules/CheckFunctionExists.c
-Linking C executable cmTC_17f07
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_17f07.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_17f07.dir/CheckFunctionExists.c.o  -o cmTC_17f07 -rdynamic -lpthreads 
+Run Build Command:"/usr/bin/make" "cmTC_70555/fast"
+/usr/bin/make -f CMakeFiles/cmTC_70555.dir/build.make CMakeFiles/cmTC_70555.dir/build
+make[1]: Entering directory '/home/noah/video_ws/src/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_70555.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_70555.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_70555
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_70555.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_70555.dir/CheckFunctionExists.c.o  -o cmTC_70555 -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_17f07.dir/build.make:97: recipe for target 'cmTC_17f07' failed
-make[1]: *** [cmTC_17f07] Error 1
-make[1]: Leaving directory '/home/rrc/Desktop/fusion/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_17f07/fast' failed
-make: *** [cmTC_17f07/fast] Error 2
-
-
-Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/ankit/code/github/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_dcb9c/fast"
-/usr/bin/make -f CMakeFiles/cmTC_dcb9c.dir/build.make CMakeFiles/cmTC_dcb9c.dir/build
-make[1]: Entering directory '/home/ankit/code/github/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_dcb9c.dir/CheckSymbolExists.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_dcb9c.dir/CheckSymbolExists.c.o   -c /home/ankit/code/github/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_dcb9c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dcb9c.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_dcb9c.dir/CheckSymbolExists.c.o  -o cmTC_dcb9c -rdynamic 
-CMakeFiles/cmTC_dcb9c.dir/CheckSymbolExists.c.o: In function `main':
-CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
-collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_dcb9c.dir/build.make:97: recipe for target 'cmTC_dcb9c' failed
-make[1]: *** [cmTC_dcb9c] Error 1
-make[1]: Leaving directory '/home/ankit/code/github/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_dcb9c/fast' failed
-make: *** [cmTC_dcb9c/fast] Error 2
-
-File /home/ankit/code/github/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
-/* */
-#include <pthread.h>
-
-int main(int argc, char** argv)
-{
-  (void)argv;
-#ifndef pthread_create
-  return ((int*)(&pthread_create))[argc];
-#else
-  (void)argc;
-  return 0;
-#endif
-}
-
-Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/ankit/code/github/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_1605d/fast"
-/usr/bin/make -f CMakeFiles/cmTC_1605d.dir/build.make CMakeFiles/cmTC_1605d.dir/build
-make[1]: Entering directory '/home/ankit/code/github/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_1605d.dir/CheckFunctionExists.c.o
-/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_1605d.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
-Linking C executable cmTC_1605d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1605d.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_1605d.dir/CheckFunctionExists.c.o  -o cmTC_1605d -rdynamic -lpthreads 
-/usr/bin/ld: cannot find -lpthreads
-collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_1605d.dir/build.make:97: recipe for target 'cmTC_1605d' failed
-make[1]: *** [cmTC_1605d] Error 1
-make[1]: Leaving directory '/home/ankit/code/github/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_1605d/fast' failed
-make: *** [cmTC_1605d/fast] Error 2
+CMakeFiles/cmTC_70555.dir/build.make:97: recipe for target 'cmTC_70555' failed
+make[1]: *** [cmTC_70555] Error 1
+make[1]: Leaving directory '/home/noah/video_ws/src/lidar_camera_calibration/pointcloud_fusion/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_70555/fast' failed
+make: *** [cmTC_70555/fast] Error 2
 
 
